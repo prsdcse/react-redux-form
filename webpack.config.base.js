@@ -1,7 +1,30 @@
-/* eslint strict:0 */
-'use strict';
+/**
+ * COMMON WEBPACK CONFIGURATIONS
+ */
+const path = require('path');
 
-module.exports = {
+module.exports = options => ({
+  mode: options.mode,
+  entry: options.entry,
+
+  output: {
+    path: path.resolve(__dirname, 'umd'),
+    filename: 'ReactReduxForm.min.js',
+    library: 'ReactReduxForm',
+    libraryTarget: 'umd',
+  },
+  optimization: options.optimization,
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
   externals: {
     react: {
       root: 'React',
@@ -26,20 +49,11 @@ module.exports = {
       commonjs2: 'redux',
       commonjs: 'redux',
       amd: 'redux',
-    }
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
-    ],
-  },
-  output: {
-    library: 'ReactReduxForm',
-    libraryTarget: 'umd',
+    },
   },
   resolve: {
-    extensions: ['', '.js'],
+    modules: ['node_modules', 'src'],
+    extensions: ['.js', '.jsx', 'react.js']
   },
-  plugins: [],
-  // devtool: 'inline-source-map'
-};
+  plugins: options.plugins,
+});

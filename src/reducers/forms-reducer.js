@@ -36,7 +36,7 @@ function createFormCombiner(strategy = defaultStrategy) {
     const {
       key,
       plugins,
-      ...formOptions,
+      ...formOptions
     } = optionsWithDefaults;
 
     formKeys.forEach((formKey) => {

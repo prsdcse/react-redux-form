@@ -10,7 +10,7 @@ class ComponentWrapper extends Component {
       defaultChecked,
       component,
       getRef,
-      ...otherProps,
+      ...otherProps
     } = this.props;
     /* eslint-enable */
 

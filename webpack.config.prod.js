@@ -1,29 +1,38 @@
-/* eslint strict:0 */
-'use strict';
+/**
+ * Production config for webpack build
+ */
 
 var path = require('path');
 
-const webpack = require('webpack');
-const baseConfig = require('./webpack.config.base');
+module.exports = require('./webpack.config.base')({
+  mode: 'production',
 
-const config = Object.create(baseConfig);
-
-Object.assign(config, {
-  entry: ["@babel/polyfill", path.join(__dirname, 'src/index.js')],
-});
-
-config.plugins = config.plugins.concat([
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      screw_ie8: true,
-      warnings: false,
+  entry: [
+    require.resolve('@babel/polyfill'),
+    path.join(__dirname, 'src/index.js'),
+  ],
+  optimization: {
+    nodeEnv: 'production',
+    sideEffects: true,
+    concatenateModules: true,
+    splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: true,
+      cacheGroups: {
+        vendors: false,
+        main: {
+          chunks: 'all',
+          minChunks: 2,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
+      },
     },
-  }),
-]);
-
-module.exports = config;
+    runtimeChunk: false,
+  },
+  plugins: [],
+});
