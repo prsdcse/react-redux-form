@@ -9,7 +9,7 @@ const baseConfig = require('./webpack.config.base');
 const config = Object.create(baseConfig);
 
 Object.assign(config, {
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: ["@babel/polyfill", path.join(__dirname, 'src/index.js')],
 });
 
 config.plugins = config.plugins.concat([
