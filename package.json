@@ -48,15 +48,14 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-2": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "babel-register": "^6.26.0",
     "chai": "^3.5.0",
     "chai-subset": "^1.2.1",
     "css-loader": "^0.24.0",
@@ -90,6 +89,7 @@
     "webpack-dev-middleware": "^3.5.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "icepick": "^1.1.0",
     "invariant": "~2.2.1",
     "lodash.get": "~4.4.2",
