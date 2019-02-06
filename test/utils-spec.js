@@ -275,7 +275,7 @@ Object.keys(testContexts).forEach((testKey) => {
       });
 
       context('state with empty key', () => {
-        const emptyReducer = function () { return {}; };
+        const emptyReducer = function () { return {}; }; // eslint-disable-line func-names
         const store = createStore(combineReducers({
           '': emptyReducer,
           firstForm: formReducer('first'),

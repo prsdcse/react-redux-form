@@ -1344,34 +1344,34 @@ Object.keys(testContexts).forEach((testKey) => {
 
       it('should set validating to true for a field when validating, ' +
         'and false when done validating',
-        testDone => {
-          const validatingStates = [];
-          const executedActions = [];
+      testDone => {
+        const validatingStates = [];
+        const executedActions = [];
 
-          const reducer = formReducer('test');
-          const dispatch = (action) => {
-            executedActions.push(action);
-            const state = reducer(undefined, action);
+        const reducer = formReducer('test');
+        const dispatch = (action) => {
+          executedActions.push(action);
+          const state = reducer(undefined, action);
 
-            if (action.type === actionTypes.SET_VALIDATING) {
-              validatingStates.push(action.validating);
+          if (action.type === actionTypes.SET_VALIDATING) {
+            validatingStates.push(action.validating);
 
-              assert.equal(state.foo.validating, action.validating);
-            } else if (action.type === actionTypes.SET_VALIDITY) {
-              validatingStates.push(state.foo.validating);
+            assert.equal(state.foo.validating, action.validating);
+          } else if (action.type === actionTypes.SET_VALIDITY) {
+            validatingStates.push(state.foo.validating);
 
-              testDone(assert.deepEqual(
-                validatingStates,
-                [true, false]));
-            }
-          };
+            testDone(assert.deepEqual(
+              validatingStates,
+              [true, false]));
+          }
+        };
 
-          const getState = () => ({});
+        const getState = () => ({});
 
-          const validator = (_, done) => done(true);
+        const validator = (_, done) => done(true);
 
-          actions.asyncSetValidity('test.foo', validator)(dispatch, getState);
-        });
+        actions.asyncSetValidity('test.foo', validator)(dispatch, getState);
+      });
 
       it('should set validating to true for a form when validating, and false when done validating',
         testDone => {

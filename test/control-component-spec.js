@@ -1,4 +1,4 @@
- /* eslint react/no-multi-comp:0 react/jsx-no-bind:0 */
+/* eslint react/no-multi-comp:0 react/jsx-no-bind:0 */
 import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -2401,7 +2401,7 @@ Object.keys(testContexts).forEach((testKey) => {
               debounce={1000}
             />
           </Provider>,
-        container);
+          container);
 
         const input = TestUtils.findRenderedDOMComponentWithTag(control, 'input');
         input.value = 'debounced';
@@ -2457,7 +2457,7 @@ Object.keys(testContexts).forEach((testKey) => {
               debounce={10}
             />
           </Provider>,
-        container);
+          container);
 
         const input = TestUtils.findRenderedDOMComponentWithTag(control, 'input');
         input.value = 'debounced';

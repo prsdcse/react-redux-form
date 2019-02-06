@@ -771,8 +771,8 @@ describe('formReducer() (V1)', () => {
         const reducer = formReducer('foo', null);
 
         const state = reducer(
-           undefined,
-           actions.reset('foo')
+          undefined,
+          actions.reset('foo')
         );
 
         assert.containSubset(state, {

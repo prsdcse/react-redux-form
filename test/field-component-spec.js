@@ -1941,7 +1941,7 @@ Object.keys(testContexts).forEach((testKey) => {
               <input />
             </Field>
           </Provider>,
-        container);
+          container);
 
         const input = TestUtils.findRenderedDOMComponentWithTag(field, 'input');
 
@@ -1972,7 +1972,7 @@ Object.keys(testContexts).forEach((testKey) => {
               <input />
             </Field>
           </Provider>,
-        container);
+          container);
 
         const input = TestUtils.findRenderedDOMComponentWithTag(field, 'input');
 
@@ -2058,7 +2058,7 @@ Object.keys(testContexts).forEach((testKey) => {
               </Field>
             </div>
           </Provider>,
-        container);
+          container);
 
         const [input, reset] = TestUtils.scryRenderedDOMComponentsWithTag(field, 'input');
 
@@ -2153,12 +2153,12 @@ Object.keys(testContexts).forEach((testKey) => {
       });
       const field = testRender(
         <Field model="test.foo">
-        {(fieldValue) => <input
-          className={fieldValue.focus
-            ? 'focused'
-            : ''
-          }
-        />}
+          {(fieldValue) => <input
+            className={fieldValue.focus
+              ? 'focused'
+              : ''
+            }
+          />}
         </Field>, store);
 
       const input = TestUtils.findRenderedDOMComponentWithTag(field, 'input');

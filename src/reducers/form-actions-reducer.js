@@ -218,11 +218,11 @@ export function createFormActionsReducer(options) {
 
       case actionTypes.SET_FIELDS_VALIDITY: {
         return map(action.fieldsValidity, (fieldValidity, subField) =>
-            fieldActions.setValidity(subField, fieldValidity, action.options)
-          ).reduce((accState, subAction) => formActionsReducer(
-            accState,
-            subAction,
-            localPath.concat(toPath(subAction.model))), state);
+          fieldActions.setValidity(subField, fieldValidity, action.options)
+        ).reduce((accState, subAction) => formActionsReducer(
+          accState,
+          subAction,
+          localPath.concat(toPath(subAction.model))), state);
       }
 
       case actionTypes.RESET_VALIDITY: {

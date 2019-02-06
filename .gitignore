@@ -35,8 +35,8 @@ home/
 dist/
 
 # Build files
-lib/
-umd/
+#lib/
+#umd/
 
 # Analysis files
 stats.json
